@@ -1,0 +1,25 @@
+type Manufacturer{
+    id: ID!
+    name: String
+    country: String
+}
+
+type Item{
+    id: ID!
+    name: String
+    manufacturer: Manufacturer
+    amount: Int
+    price: Float
+}
+
+type Query{
+    findAllItems: [Item]
+    findItemById(id: ID!): Item
+    findAllManufacturers: [Manufacturer]
+    findManufacturerById(id: ID!): Manufacturer
+}
+
+type Mutation{
+    createManufacturer(name: String, country: String): Manufacturer
+    updateManufacturer(id: ID!, name: String, country: String): Manufacturer
+}
